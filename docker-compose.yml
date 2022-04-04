@@ -1,0 +1,26 @@
+version: "3.9"
+
+services:
+    adapter:
+        image: adapter
+        build: .
+        hostname: adapter
+        # restart: always
+        environment:
+            # - TZ=Europe/Samara
+            # - EU_AWS_ACCESS_KEY_ID=user
+            # - EU_AWS_SECRET_ACCESS_KEY=12345678
+            # - MINIO_ENDPOINT=http://192.168.166.15:9000
+            # - MINIO_PREFIX=s3
+            # - MINIO_BUCKET=test
+            # - OSM_SERVER=172.16.10.183/osm
+            # - OSRM_SERVER=172.16.10.183:5000
+            # - NOMINATIM_SERVER=nominatim:8080
+            # - PICTURE_SERVER=172.16.10.183
+
+            # Gunicorn server enviroments:
+            - WORKERS_COUNT=1
+            - BIND_ADDRESS=0.0.0.0:8082
+            - LOG_LEVEL=info
+        ports:
+            - 8082:8082

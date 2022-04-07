@@ -5,22 +5,44 @@ services:
         image: adapter
         build: .
         hostname: adapter
-        # restart: always
+        restart: unless-stopped
         environment:
-            # - TZ=Europe/Samara
-            # - EU_AWS_ACCESS_KEY_ID=user
-            # - EU_AWS_SECRET_ACCESS_KEY=12345678
-            # - MINIO_ENDPOINT=http://192.168.166.15:9000
-            # - MINIO_PREFIX=s3
-            # - MINIO_BUCKET=test
-            # - OSM_SERVER=172.16.10.183/osm
-            # - OSRM_SERVER=172.16.10.183:5000
-            # - NOMINATIM_SERVER=nominatim:8080
-            # - PICTURE_SERVER=172.16.10.183
-
             # Gunicorn server enviroments:
-            - WORKERS_COUNT=1
+            # - WORKERS_COUNT=1 #NOT WORKING - always 1
             - BIND_ADDRESS=0.0.0.0:8082
             - LOG_LEVEL=info
         ports:
             - 8082:8082
+
+    prometheus_volgar:
+        container_name: prometheus_volgar
+        image: prom/prometheus
+        restart: unless-stopped
+        links:
+        - adapter:adapter
+        volumes: 
+            - ./prometheus.yml:/etc/prometheus/prometheus.yml
+            - prometheus_volume_dev:/prometheus
+        ports: 
+            - 9090:9090
+
+    grafana_volgar:
+        image: grafana/grafana:latest
+        container_name: monitoring_grafana_volgar
+        restart: unless-stopped
+        links:
+        - prometheus_volgar:prometheus_volgar
+        volumes:
+        - grafana_volume_dev:/var/lib/grafana
+        environment:
+        - GF_SECURITY_ADMIN_PASSWORD=MYPASSWORT
+
+        - GF_AUTH_ANONYMOUS_ENABLED=true
+        - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
+        - GF_AUTH_ANONYMOUS_HIDE_VERSION=true
+        ports: 
+            - 80:3000
+
+volumes: 
+    prometheus_volume_dev:
+    grafana_volume_dev:

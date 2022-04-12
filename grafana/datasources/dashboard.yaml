@@ -1,0 +1,21 @@
+# config file version
+apiVersion: 1
+
+# list of datasources that should be deleted from the database
+deleteDatasources:
+  - name: Prometheus
+    orgId: 1
+
+datasources:
+  - name: Prometheus
+    type: prometheus
+    # Access mode - proxy (server in the UI) or direct (browser in the UI).
+    access: proxy
+    url: http://prometheus_volgar:9090
+    isDefault: true
+    orgId: 1
+    uid: MspbsMUnk
+    editable: true
+    jsonData:
+      httpMethod: POST
+      timeInterval: 5m

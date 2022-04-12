@@ -1,0 +1,289 @@
+{
+  "annotations": {
+    "list": [
+      {
+        "builtIn": 1,
+        "datasource": {
+          "type": "datasource",
+          "uid": "grafana"
+        },
+        "enable": true,
+        "hide": true,
+        "iconColor": "rgba(0, 211, 255, 1)",
+        "name": "Annotations & Alerts",
+        "target": {
+          "limit": 100,
+          "matchAny": false,
+          "tags": [],
+          "type": "dashboard"
+        },
+        "type": "dashboard"
+      }
+    ]
+  },
+  "editable": true,
+  "fiscalYearStartMonth": 0,
+  "graphTooltip": 0,
+  "id": 4,
+  "links": [],
+  "liveNow": false,
+  "panels": [
+    {
+      "datasource": {
+        "type": "prometheus",
+        "uid": "MspbsMUnk"
+      },
+      "description": "",
+      "fieldConfig": {
+        "defaults": {
+          "color": {
+            "mode": "palette-classic"
+          },
+          "custom": {
+            "axisLabel": "",
+            "axisPlacement": "auto",
+            "axisSoftMax": 110,
+            "barAlignment": 0,
+            "drawStyle": "line",
+            "fillOpacity": 0,
+            "gradientMode": "none",
+            "hideFrom": {
+              "legend": false,
+              "tooltip": false,
+              "viz": false
+            },
+            "lineInterpolation": "linear",
+            "lineWidth": 1,
+            "pointSize": 5,
+            "scaleDistribution": {
+              "type": "linear"
+            },
+            "showPoints": "auto",
+            "spanNulls": true,
+            "stacking": {
+              "group": "A",
+              "mode": "none"
+            },
+            "thresholdsStyle": {
+              "mode": "area"
+            }
+          },
+          "mappings": [],
+          "min": 0,
+          "thresholds": {
+            "mode": "absolute",
+            "steps": [
+              {
+                "color": "green",
+                "value": null
+              },
+              {
+                "color": "red",
+                "value": 100
+              }
+            ]
+          },
+          "unit": "percent"
+        },
+        "overrides": []
+      },
+      "gridPos": {
+        "h": 24,
+        "w": 24,
+        "x": 0,
+        "y": 0
+      },
+      "id": 3,
+      "options": {
+        "legend": {
+          "calcs": [
+            "last"
+          ],
+          "displayMode": "table",
+          "placement": "bottom"
+        },
+        "tooltip": {
+          "mode": "single",
+          "sort": "none"
+        }
+      },
+      "targets": [
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "MspbsMUnk"
+          },
+          "exemplar": true,
+          "expr": "pollutions{id=\"12\",data_source=\"pogoda_sv_rounded\"}",
+          "interval": "",
+          "legendFormat": "Сера диоксид",
+          "refId": "A"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "MspbsMUnk"
+          },
+          "exemplar": true,
+          "expr": "pollutions{id=\"13\",data_source=\"pogoda_sv_rounded\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Сероводород",
+          "refId": "B"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "MspbsMUnk"
+          },
+          "exemplar": true,
+          "expr": "pollutions{id=\"14\",data_source=\"pogoda_sv_rounded\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Углерода оксид",
+          "refId": "C"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "MspbsMUnk"
+          },
+          "exemplar": true,
+          "expr": "pollutions{id=\"15\",data_source=\"pogoda_sv_rounded\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Формальдегид",
+          "refId": "D"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "MspbsMUnk"
+          },
+          "exemplar": true,
+          "expr": "pollutions{id=\"20\",data_source=\"pogoda_sv_rounded\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Бензол",
+          "refId": "E"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "MspbsMUnk"
+          },
+          "exemplar": true,
+          "expr": "pollutions{id=\"21\",data_source=\"pogoda_sv_rounded\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Толуол",
+          "refId": "F"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "MspbsMUnk"
+          },
+          "exemplar": true,
+          "expr": "pollutions{id=\"22\",data_source=\"pogoda_sv_rounded\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Этилбензол",
+          "refId": "G"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "MspbsMUnk"
+          },
+          "exemplar": true,
+          "expr": "pollutions{id=\"23\",data_source=\"pogoda_sv_rounded\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Хлорбензол",
+          "refId": "H"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "MspbsMUnk"
+          },
+          "exemplar": true,
+          "expr": "pollutions{id=\"25\",data_source=\"pogoda_sv_rounded\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "О-ксилол",
+          "refId": "I"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "MspbsMUnk"
+          },
+          "exemplar": true,
+          "expr": "pollutions{id=\"27\",data_source=\"pogoda_sv_rounded\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Фенол",
+          "refId": "J"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "MspbsMUnk"
+          },
+          "exemplar": true,
+          "expr": "pollutions{id=\"59\",data_source=\"pogoda_sv_rounded\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Углеводороды C1-C5",
+          "refId": "K"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "MspbsMUnk"
+          },
+          "exemplar": true,
+          "expr": "pollutions{id=\"60\",data_source=\"pogoda_sv_rounded\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Углеводороды C6-C10",
+          "refId": "L"
+        }
+      ],
+      "title": "Загрязнения воздуха в жилом микрорайне Волгарь, г. Самара",
+      "type": "timeseries"
+    }
+  ],
+  "refresh": false,
+  "schemaVersion": 36,
+  "style": "dark",
+  "tags": [],
+  "templating": {
+    "list": []
+  },
+  "time": {
+    "from": "now-12h",
+    "to": "now"
+  },
+  "timepicker": {
+    "refresh_intervals": [
+      "5s",
+      "10s",
+      "30s",
+      "1m",
+      "5m",
+      "15m",
+      "30m",
+      "1h",
+      "2h",
+      "1d"
+    ]
+  },
+  "timezone": "",
+  "title": "Волгарь",
+  "uid": "OTfUZm87k",
+  "version": 6,
+  "weekStart": ""
+}

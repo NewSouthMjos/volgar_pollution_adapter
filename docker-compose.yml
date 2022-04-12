@@ -2,8 +2,8 @@ version: "3.9"
 
 services:
     adapter:
-        image: adapter
-        build: .
+        image: newsouthmjos/adapter:1.0.0
+        # build: .
         hostname: adapter
         restart: unless-stopped
         environment:
@@ -34,12 +34,15 @@ services:
         - prometheus_volgar:prometheus_volgar
         volumes:
         - grafana_volume_dev:/var/lib/grafana
+        - ./grafana/dashboards:/etc/grafana/provisioning/dashboards/
+        - ./grafana/datasources:/etc/grafana/provisioning/datasources/
         environment:
-        - GF_SECURITY_ADMIN_PASSWORD=MYPASSWORT
+        - GF_SECURITY_ADMIN_PASSWORD=${MY_SECRET_PASS}
 
         - GF_AUTH_ANONYMOUS_ENABLED=true
         - GF_AUTH_ANONYMOUS_ORG_ROLE=Viewer
         - GF_AUTH_ANONYMOUS_HIDE_VERSION=true
+        - GF_DASHBOARDS_DEFAULT_HOME_DASHBOARD_PATH=/etc/grafana/provisioning/dashboards/home.json
         ports: 
             - 80:3000
 

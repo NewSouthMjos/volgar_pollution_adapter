@@ -2,8 +2,8 @@ version: "3.9"
 
 services:
     adapter:
-        image: newsouthmjos/adapter:1.0.0
-        # build: .
+        # image: newsouthmjos/adapter:1.0.0
+        build: .
         hostname: adapter
         restart: unless-stopped
         environment:

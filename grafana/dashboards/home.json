@@ -24,7 +24,7 @@
   "editable": true,
   "fiscalYearStartMonth": 0,
   "graphTooltip": 0,
-  "id": 4,
+  "id": 1,
   "links": [],
   "liveNow": false,
   "panels": [
@@ -85,7 +85,139 @@
           },
           "unit": "percent"
         },
-        "overrides": []
+        "overrides": [
+          {
+            "matcher": {
+              "id": "byName",
+              "options": "Направление ветра"
+            },
+            "properties": [
+              {
+                "id": "custom.axisPlacement",
+                "value": "right"
+              },
+              {
+                "id": "unit",
+                "value": "degree"
+              },
+              {
+                "id": "custom.axisSoftMax",
+                "value": 360
+              },
+              {
+                "id": "color",
+                "value": {
+                  "fixedColor": "#ffffff",
+                  "mode": "fixed"
+                }
+              },
+              {
+                "id": "mappings",
+                "value": [
+                  {
+                    "options": {
+                      "from": 0,
+                      "result": {
+                        "index": 0,
+                        "text": "С"
+                      },
+                      "to": 22.5
+                    },
+                    "type": "range"
+                  },
+                  {
+                    "options": {
+                      "from": 22.5,
+                      "result": {
+                        "index": 1,
+                        "text": "СВ"
+                      },
+                      "to": 67.5
+                    },
+                    "type": "range"
+                  },
+                  {
+                    "options": {
+                      "from": 67.5,
+                      "result": {
+                        "index": 2,
+                        "text": "В"
+                      },
+                      "to": 112.5
+                    },
+                    "type": "range"
+                  },
+                  {
+                    "options": {
+                      "from": 112.5,
+                      "result": {
+                        "index": 3,
+                        "text": "ЮВ"
+                      },
+                      "to": 157.5
+                    },
+                    "type": "range"
+                  },
+                  {
+                    "options": {
+                      "from": 157.5,
+                      "result": {
+                        "index": 4,
+                        "text": "Ю"
+                      },
+                      "to": 202.5
+                    },
+                    "type": "range"
+                  },
+                  {
+                    "options": {
+                      "from": 202.5,
+                      "result": {
+                        "index": 5,
+                        "text": "ЮЗ"
+                      },
+                      "to": 247.5
+                    },
+                    "type": "range"
+                  },
+                  {
+                    "options": {
+                      "from": 247.5,
+                      "result": {
+                        "index": 6,
+                        "text": "З"
+                      },
+                      "to": 292.5
+                    },
+                    "type": "range"
+                  },
+                  {
+                    "options": {
+                      "from": 292.5,
+                      "result": {
+                        "index": 7,
+                        "text": "СЗ"
+                      },
+                      "to": 337.5
+                    },
+                    "type": "range"
+                  },
+                  {
+                    "options": {
+                      "from": 337.5,
+                      "result": {
+                        "index": 8,
+                        "text": "С"
+                      },
+                      "to": 360
+                    },
+                    "type": "range"
+                  }
+                ]
+              }
+            ]
+          }
+        ]
       },
       "gridPos": {
         "h": 24,
@@ -250,6 +382,20 @@
           "interval": "",
           "legendFormat": "Углеводороды C6-C10",
           "refId": "L"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "MspbsMUnk"
+          },
+          "editorMode": "code",
+          "expr": "pollutions{id=\"7\", data_source=\"calc\"}",
+          "format": "time_series",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Направление ветра",
+          "range": true,
+          "refId": "M"
         }
       ],
       "title": "Загрязнения воздуха в жилом микрорайоне Волгарь, г. Самара, в % от ПДК (информация получена от ФГБУ «Приволжское УГМС»)",
@@ -284,6 +430,6 @@
   "timezone": "",
   "title": "Волгарь",
   "uid": "OTfUZm87k",
-  "version": 6,
+  "version": 7,
   "weekStart": ""
 }

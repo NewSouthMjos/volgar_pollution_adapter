@@ -376,18 +376,6 @@
             "type": "prometheus",
             "uid": "MspbsMUnk"
           },
-          "exemplar": true,
-          "expr": "pollutions{id=\"60\",data_source=\"pogoda_sv_rounded\"}",
-          "hide": false,
-          "interval": "",
-          "legendFormat": "Углеводороды C6-C10",
-          "refId": "L"
-        },
-        {
-          "datasource": {
-            "type": "prometheus",
-            "uid": "MspbsMUnk"
-          },
           "editorMode": "code",
           "expr": "pollutions{id=\"7\", data_source=\"calc\"}",
           "format": "time_series",
@@ -395,6 +383,18 @@
           "interval": "",
           "legendFormat": "Направление ветра",
           "range": true,
+          "refId": "L"
+        },
+        {
+          "datasource": {
+            "type": "prometheus",
+            "uid": "MspbsMUnk"
+          },
+          "exemplar": true,
+          "expr": "pollutions{id=\"60\",data_source=\"pogoda_sv_rounded\"}",
+          "hide": false,
+          "interval": "",
+          "legendFormat": "Углеводороды C6-C10",
           "refId": "M"
         }
       ],
